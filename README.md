@@ -1,3 +1,32 @@
+```mermaid
+%%{init: { 'gitGraph': {'showBranches': true, 'showCommitLabel': false, 'mainBranchName': 'micropython#master'}} }%%
+gitGraph
+    commit id: "Fork" tag: "up-stream"
+    branch "lobo_python#master"
+    checkout "lobo_python#master"
+    commit id: "Branch" tag: "Fork"
+    branch "lobo_python#contrlrA"
+    checkout "lobo_python#contrlrA"
+    commit id: "Adding A" tag: "Branch"
+    checkout "lobo_python#master"
+    checkout "lobo_python#master"
+    branch "lobo_python#contrlrB"
+    checkout "lobo_python#contrlrB"
+    commit id: "Adding B" tag: "Branch"
+    checkout "micropython#master"
+    commit id: "Update #1"
+    checkout "lobo_python#master"
+    merge "micropython#master"
+    checkout "lobo_python#contrlrA"
+    merge "lobo_python#master"
+    checkout "lobo_python#contrlrB"
+    merge "lobo_python#master"
+    checkout "micropython#master"
+    commit id: "Update #2"
+```
+
+Read [this](https://github.com/micropython/micropython/wiki/Micropython-Git-Development-Workflow) page.
+
 [![CI badge](https://github.com/micropython/micropython/workflows/unix%20port/badge.svg)](https://github.com/micropython/micropython/actions?query=branch%3Amaster+event%3Apush) [![codecov](https://codecov.io/gh/micropython/micropython/branch/master/graph/badge.svg?token=I92PfD05sD)](https://codecov.io/gh/micropython/micropython)
 
 The MicroPython project
