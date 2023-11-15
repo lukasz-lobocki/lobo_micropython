@@ -107,6 +107,13 @@ void NICLAV_board_osc_enable(int enable);
 // SMPS configuration
 #define MICROPY_HW_PWR_SMPS_CONFIG      (PWR_LDO_SUPPLY)
 
+// Configure the analog switches for dual-pad pins.
+#define MICROPY_HW_ANALOG_SWITCH_PA0    (SYSCFG_SWITCH_PA0_OPEN)
+#define MICROPY_HW_ANALOG_SWITCH_PA1    (SYSCFG_SWITCH_PA1_OPEN)
+// PC2_C and PC3_C, which are connected to ULPI NXT and DIR pins.
+#define MICROPY_HW_ANALOG_SWITCH_PC2    (SYSCFG_SWITCH_PC2_CLOSE)
+#define MICROPY_HW_ANALOG_SWITCH_PC3    (SYSCFG_SWITCH_PC3_CLOSE)
+
 // There is an external 32kHz oscillator
 #define RTC_ASYNCH_PREDIV           (0)
 #define RTC_SYNCH_PREDIV            (0x7fff)
@@ -180,9 +187,9 @@ extern struct _spi_bdev_t spi_bdev;
 #define MICROPY_HW_CAN_IS_RESERVED(id) (id != PYB_CAN_1)
 
 // LEDs
-#define MICROPY_HW_LED1             (pyb_pin_LEDR) // red
-#define MICROPY_HW_LED2             (pyb_pin_LEDG) // green
-#define MICROPY_HW_LED3             (pyb_pin_LEDB) // yellow
+#define MICROPY_HW_LED1             (pyb_pin_LED_RED) // red
+#define MICROPY_HW_LED2             (pyb_pin_LED_GREEN) // green
+#define MICROPY_HW_LED3             (pyb_pin_LED_BLUE) // yellow
 #define MICROPY_HW_LED_ON(pin)      (mp_hal_pin_low(pin))
 #define MICROPY_HW_LED_OFF(pin)     (mp_hal_pin_high(pin))
 
